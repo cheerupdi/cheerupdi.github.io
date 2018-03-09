@@ -50,7 +50,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-03-09T01:55:15.132Z"><a href="/2018/03/09/MongoDB_basic/">2018-03-09</a></time>
+        <time datetime="2018-03-09T02:21:59.828Z"><a href="/2018/03/09/MongoDB_basic/">2018-03-09</a></time>
       
       
   
@@ -81,15 +81,19 @@
 <p><strong>contribs</strong>의 3번째 요소를 명시하려면 “contribs.2” 같은 표현을 사용하면 된다.</p>
 <h4 id="Embedded-Documents"><a href="#Embedded-Documents" class="headerlink" title="Embedded Documents"></a>Embedded Documents</h4><p>dot notation으로 embedded document(해석 어케하는지 몰겟음)의 field에 접근하려면<br>dot(.)을 이용하여 필드 이름을 명시하고 연계하여 쓰면 그만이다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&lt;embedded document&gt;.&lt;field&gt;"</span></span><br><span class="line">```bash</span><br><span class="line"></span><br><span class="line">예를 들어 다음의 document의 field를 보면</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">&#123;</span><br><span class="line">   ...</span><br><span class="line">   name: &#123; first: <span class="string">"Alan"</span>, last: <span class="string">"Turing"</span> &#125;,</span><br><span class="line">   contact: &#123; phone: &#123; <span class="built_in">type</span>: <span class="string">"cell"</span>, number: <span class="string">"111-222-3333"</span> &#125; &#125;,</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>- **name** field의 last를 명시하려면 **&quot;name.last&quot;** 와 같은 dot noation을 사용하자
-- **contact** field에서 **phone** document의 **number**를 명시하려면 **&quot;contact.phone.number&quot;**를 사용하자
-</code></pre><h3 id="Document-Limitations"><a href="#Document-Limitations" class="headerlink" title="Document Limitations"></a>Document Limitations</h3><p>Document는 다음의 제한사항을 따른다.</p>
+<ul>
+<li><strong>name</strong> field의 last를 명시하려면 <strong>“name.last”</strong> 와 같은 dot noation을 사용하자</li>
+<li><strong>contact</strong> field에서 <strong>phone</strong> document의 <strong>number</strong>를 명시하려면 <strong>“contact.phone.number”</strong>를 사용하자</li>
+</ul>
+<h3 id="Document-Limitations"><a href="#Document-Limitations" class="headerlink" title="Document Limitations"></a>Document Limitations</h3><p>Document는 다음의 제한사항을 따른다.</p>
 <h4 id="Document-Size-Limit"><a href="#Document-Size-Limit" class="headerlink" title="Document Size Limit"></a>Document Size Limit</h4><p>BSON document의 사이즈는 최대 16MB로 제한된다.</p>
 <p>최대 document 사이즈는 하나의 document가 과도한 양의 메모리를 독점하는걸 방지하거나 전송중 과도한 양의 대역폭을 사용하는것을 제한한다.<br>최대 사이즈보다 큰 document를 저장하려면 MongoDB의 GridFS API를 사용하면 된다.</p>
 <h4 id="Document-Field-Order"><a href="#Document-Field-Order" class="headerlink" title="Document Field Order"></a>Document Field Order</h4><p>MongDB는 다음의 경우를 제외하고는 document fields의 순서를 보존한다. </p>
-<pre><code>- **_id** field는 항상 document의 첫번째다
-- 필드 이름의 이름 바꾸기가 포함 된 업데이트로 인해 문서의 필드 순서가 변경 될 수 있다.
-</code></pre><h3 id="Other-Uses-of-the-Document-Structure"><a href="#Other-Uses-of-the-Document-Structure" class="headerlink" title="Other Uses of the Document Structure"></a>Other Uses of the Document Structure</h3><p>MongoDB는 데이터 레코드를 정의하는 것 외에도 쿼리 필터, 업데이트 사양 문서 및 인덱스 사양 문서를 포함하되 이에 국한되지 않는 문서 구조를 사용한다.</p>
+<ul>
+<li><strong>_id</strong> field는 항상 document의 첫번째다</li>
+<li>필드 이름의 이름 바꾸기가 포함 된 업데이트로 인해 문서의 필드 순서가 변경 될 수 있다.</li>
+</ul>
+<h3 id="Other-Uses-of-the-Document-Structure"><a href="#Other-Uses-of-the-Document-Structure" class="headerlink" title="Other Uses of the Document Structure"></a>Other Uses of the Document Structure</h3><p>MongoDB는 데이터 레코드를 정의하는 것 외에도 쿼리 필터, 업데이트 사양 문서 및 인덱스 사양 문서를 포함하되 이에 국한되지 않는 문서 구조를 사용한다.</p>
 <h4 id="Query-Filter-Documents"><a href="#Query-Filter-Documents" class="headerlink" title="Query Filter Documents"></a>Query Filter Documents</h4><p><strong><field>:<value></value></field></strong>와 같은 표현을 사용하여 쿼리 연산자 표현을 정의할수 있다는것 같다.<br>예전에 잠깐 엘라스틱서치에서 비슷한걸 본적이 있다.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &lt;field1&gt;: &lt;value1&gt;,</span><br><span class="line">  &lt;field2&gt;: &#123; &lt;operator&gt;: &lt;value&gt; &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Update-Specification-Documents"><a href="#Update-Specification-Documents" class="headerlink" title="Update Specification Documents"></a>Update Specification Documents</h4><p>document를 업데이트 하려면 update 연산자를 쓴단다.<br>예를 들어서 다음과 같다<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &lt;operator1&gt;: &#123; &lt;field1&gt;: &lt;value1&gt;, ... &#125;,</span><br><span class="line">  &lt;operator2&gt;: &#123; &lt;field2&gt;: &lt;value2&gt;, ... &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>

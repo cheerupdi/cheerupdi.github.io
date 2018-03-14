@@ -3,13 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>My New Post | 보조기억장치</title>
+  <title>MongdoDB Command 정리 | 보조기억장치</title>
   <meta name="author" content="dandonco">
+  
+  <meta name="description" content="Console상의 MongoDB에서 명령어를 알아보자
+use [database]
+DB 생성
+생성 후 생성된 DB를 사용하게 됨
+이미 존재하는 경우에 현존하는 데이터베이스를 사용
+example
+
+upbit라는 데이터베이스를 생성
+12&amp;gt; use upbitswitche">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="My New Post"/>
+  <meta property="og:title" content="MongdoDB Command 정리"/>
   <meta property="og:site_name" content="보조기억장치"/>
 
   
@@ -49,23 +59,52 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-03-07T04:32:20.000Z"><a href="/2018/03/07/My-New-Post/">2018-03-07</a></time>
+        <time datetime="2018-03-14T04:57:31.503Z"><a href="/2018/03/14/MongoDB_Command1/">2018-03-14</a></time>
       
       
   
-    <h1 class="title">My New Post</h1>
+    <h1 class="title">MongdoDB Command 정리</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <p>Console상의 MongoDB에서 명령어를 알아보자</p>
+<h3 id="use-database"><a href="#use-database" class="headerlink" title="use [database]"></a>use [database]</h3><ul>
+<li>DB 생성</li>
+<li>생성 후 생성된 DB를 사용하게 됨</li>
+<li>이미 존재하는 경우에 현존하는 데이터베이스를 사용</li>
+<li>example</li>
+</ul>
+<p>upbit라는 데이터베이스를 생성</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; use upbit</span><br><span class="line">switched to db upbit</span><br></pre></td></tr></table></figure>
+<h3 id="db"><a href="#db" class="headerlink" title="db"></a>db</h3><ul>
+<li>현재 사용중인 DB 확인</li>
+<li>example</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db</span><br><span class="line">upbit</span><br></pre></td></tr></table></figure>
+<h3 id="show-dbs"><a href="#show-dbs" class="headerlink" title="show dbs"></a>show dbs</h3><ul>
+<li>내가 만든 DB 리스트 확인</li>
+<li>example</li>
+</ul>
+<pre><code class="bash">&gt; show dbs
+admin   0.000GB
+config  0.000GB
+<span class="built_in">local</span>   0.000GB
+upbit   0.002GB
+</code></pre>
+
       
     </div>
     <footer>
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/MongoDB/">MongoDB</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -106,7 +145,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://chrrupdi.github.io/2018/03/07/My-New-Post/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://chrrupdi.github.io/2018/03/14/MongoDB_Command1/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
